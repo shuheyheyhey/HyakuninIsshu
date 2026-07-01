@@ -12,7 +12,8 @@ import SwiftData
 struct MrHyakuninIsshuApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Card.self,
+            TagGroup.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -22,6 +23,10 @@ struct MrHyakuninIsshuApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+
+    init() {
+        PoemSeeder.seedIfNeeded(context: sharedModelContainer.mainContext)
+    }
 
     var body: some Scene {
         WindowGroup {
