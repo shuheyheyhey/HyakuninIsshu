@@ -1,0 +1,709 @@
+/*
+  Poems.strings
+  MrHyakuninIsshu
+
+  小倉百人一首 100首の本文・読み・作者データ。
+  キー形式: poem_{n}_upper.text / poem_{n}_upper.reading /
+            poem_{n}_lower.text / poem_{n}_lower.reading / poem_{n}_author
+  reading は AVSpeechSynthesizer(ja-JP) 読み上げ用の現代仮名遣いひらがな。
+*/
+
+// 1: 天智天皇
+"poem_1_upper.text" = "秋の田の　かりほの庵の　苫をあらみ";
+"poem_1_upper.reading" = "あきのたの　かりほのいおの　とまをあらみ";
+"poem_1_lower.text" = "わが衣手は　露にぬれつつ";
+"poem_1_lower.reading" = "わがころもでは　つゆにぬれつつ";
+"poem_1_author" = "天智天皇";
+
+// 2: 持統天皇
+"poem_2_upper.text" = "春すぎて　夏来にけらし　白妙の";
+"poem_2_upper.reading" = "はるすぎて　なつきにけらし　しろたえの";
+"poem_2_lower.text" = "衣ほすてふ　天の香具山";
+"poem_2_lower.reading" = "ころもほすちょう　あまのかぐやま";
+"poem_2_author" = "持統天皇";
+
+// 3: 柿本人麻呂
+"poem_3_upper.text" = "あしびきの　山鳥の尾の　しだり尾の";
+"poem_3_upper.reading" = "あしびきの　やまどりのおの　しだりおの";
+"poem_3_lower.text" = "ながながし夜を　ひとりかも寝む";
+"poem_3_lower.reading" = "ながながしよを　ひとりかもねん";
+"poem_3_author" = "柿本人麻呂";
+
+// 4: 山部赤人
+"poem_4_upper.text" = "田子の浦に　うち出でて見れば　白妙の";
+"poem_4_upper.reading" = "たごのうらに　うちいでてみれば　しろたえの";
+"poem_4_lower.text" = "富士の高嶺に　雪は降りつつ";
+"poem_4_lower.reading" = "ふじのたかねに　ゆきはふりつつ";
+"poem_4_author" = "山部赤人";
+
+// 5: 猿丸大夫
+"poem_5_upper.text" = "奥山に　紅葉踏み分け　鳴く鹿の";
+"poem_5_upper.reading" = "おくやまに　もみじふみわけ　なくしかの";
+"poem_5_lower.text" = "声聞く時ぞ　秋は悲しき";
+"poem_5_lower.reading" = "こえきくときぞ　あきはかなしき";
+"poem_5_author" = "猿丸大夫";
+
+// 6: 中納言家持
+"poem_6_upper.text" = "かささぎの　渡せる橋に　おく霜の";
+"poem_6_upper.reading" = "かささぎの　わたせるはしに　おくしもの";
+"poem_6_lower.text" = "白きを見れば　夜ぞふけにける";
+"poem_6_lower.reading" = "しろきをみれば　よぞふけにける";
+"poem_6_author" = "中納言家持";
+
+// 7: 阿倍仲麿
+"poem_7_upper.text" = "天の原　ふりさけ見れば　春日なる";
+"poem_7_upper.reading" = "あまのはら　ふりさけみれば　かすがなる";
+"poem_7_lower.text" = "三笠の山に　出でし月かも";
+"poem_7_lower.reading" = "みかさのやまに　いでしつきかも";
+"poem_7_author" = "阿倍仲麿";
+
+// 8: 喜撰法師
+"poem_8_upper.text" = "わが庵は　都のたつみ　しかぞすむ";
+"poem_8_upper.reading" = "わがいおは　みやこのたつみ　しかぞすむ";
+"poem_8_lower.text" = "世をうぢ山と　人はいふなり";
+"poem_8_lower.reading" = "よをうじやまと　ひとはいうなり";
+"poem_8_author" = "喜撰法師";
+
+// 9: 小野小町
+"poem_9_upper.text" = "花の色は　うつりにけりな　いたづらに";
+"poem_9_upper.reading" = "はなのいろは　うつりにけりな　いたずらに";
+"poem_9_lower.text" = "わが身世にふる　ながめせしまに";
+"poem_9_lower.reading" = "わがみよにふる　ながめせしまに";
+"poem_9_author" = "小野小町";
+
+// 10: 蝉丸
+"poem_10_upper.text" = "これやこの　行くも帰るも　別れては";
+"poem_10_upper.reading" = "これやこの　ゆくもかえるも　わかれては";
+"poem_10_lower.text" = "知るも知らぬも　逢坂の関";
+"poem_10_lower.reading" = "しるもしらぬも　おうさかのせき";
+"poem_10_author" = "蝉丸";
+
+// 11: 参議篁
+"poem_11_upper.text" = "わたの原　八十島かけて　漕ぎ出でぬと";
+"poem_11_upper.reading" = "わたのはら　やそしまかけて　こぎいでぬと";
+"poem_11_lower.text" = "人には告げよ　あまのつり舟";
+"poem_11_lower.reading" = "ひとにはつげよ　あまのつりぶね";
+"poem_11_author" = "参議篁";
+
+// 12: 僧正遍昭
+"poem_12_upper.text" = "天つ風　雲のかよひ路　吹きとぢよ";
+"poem_12_upper.reading" = "あまつかぜ　くものかよいじ　ふきとじよ";
+"poem_12_lower.text" = "をとめの姿　しばしとどめむ";
+"poem_12_lower.reading" = "おとめのすがた　しばしとどめん";
+"poem_12_author" = "僧正遍昭";
+
+// 13: 陽成院
+"poem_13_upper.text" = "つくばねの　峰より落つる　みなの川";
+"poem_13_upper.reading" = "つくばねの　みねよりおつる　みなのがわ";
+"poem_13_lower.text" = "恋ぞつもりて　淵となりぬる";
+"poem_13_lower.reading" = "こいぞつもりて　ふちとなりぬる";
+"poem_13_author" = "陽成院";
+
+// 14: 河原左大臣
+"poem_14_upper.text" = "みちのくの　しのぶもぢずり　誰ゆゑに";
+"poem_14_upper.reading" = "みちのくの　しのぶもじずり　たれゆえに";
+"poem_14_lower.text" = "乱れそめにし　われならなくに";
+"poem_14_lower.reading" = "みだれそめにし　われならなくに";
+"poem_14_author" = "河原左大臣";
+
+// 15: 光孝天皇
+"poem_15_upper.text" = "君がため　春の野に出でて　若菜つむ";
+"poem_15_upper.reading" = "きみがため　はるののにいでて　わかなつむ";
+"poem_15_lower.text" = "わが衣手に　雪は降りつつ";
+"poem_15_lower.reading" = "わがころもでに　ゆきはふりつつ";
+"poem_15_author" = "光孝天皇";
+
+// 16: 中納言行平
+"poem_16_upper.text" = "立ち別れ　いなばの山の　峰に生ふる";
+"poem_16_upper.reading" = "たちわかれ　いなばのやまの　みねにおうる";
+"poem_16_lower.text" = "まつとし聞かば　今帰り来む";
+"poem_16_lower.reading" = "まつとしきかば　いまかえりこん";
+"poem_16_author" = "中納言行平";
+
+// 17: 在原業平朝臣
+"poem_17_upper.text" = "ちはやぶる　神代も聞かず　竜田川";
+"poem_17_upper.reading" = "ちはやぶる　かみよもきかず　たつたがわ";
+"poem_17_lower.text" = "からくれなゐに　水くくるとは";
+"poem_17_lower.reading" = "からくれないに　みずくくるとは";
+"poem_17_author" = "在原業平朝臣";
+
+// 18: 藤原敏行朝臣
+"poem_18_upper.text" = "住の江の　岸による波　よるさへや";
+"poem_18_upper.reading" = "すみのえの　きしによるなみ　よるさえや";
+"poem_18_lower.text" = "夢の通ひ路　人目よくらむ";
+"poem_18_lower.reading" = "ゆめのかよいじ　ひとめよくらん";
+"poem_18_author" = "藤原敏行朝臣";
+
+// 19: 伊勢
+"poem_19_upper.text" = "難波潟　短き葦の　ふしのまも";
+"poem_19_upper.reading" = "なにわがた　みじかきあしの　ふしのまも";
+"poem_19_lower.text" = "あはでこの世を　すぐしてよとや";
+"poem_19_lower.reading" = "あわでこのよを　すぐしてよとや";
+"poem_19_author" = "伊勢";
+
+// 20: 元良親王
+"poem_20_upper.text" = "わびぬれば　今はた同じ　難波なる";
+"poem_20_upper.reading" = "わびぬれば　いまはたおなじ　なにわなる";
+"poem_20_lower.text" = "身をつくしても　逢はむとぞ思ふ";
+"poem_20_lower.reading" = "みをつくしても　あわんとぞおもう";
+"poem_20_author" = "元良親王";
+
+// 21: 素性法師
+"poem_21_upper.text" = "今来むと　いひしばかりに　長月の";
+"poem_21_upper.reading" = "いまこんと　いいしばかりに　ながつきの";
+"poem_21_lower.text" = "有明の月を　待ちいでつるかな";
+"poem_21_lower.reading" = "ありあけのつきを　まちいでつるかな";
+"poem_21_author" = "素性法師";
+
+// 22: 文屋康秀
+"poem_22_upper.text" = "吹くからに　秋の草木の　しをるれば";
+"poem_22_upper.reading" = "ふくからに　あきのくさきの　しおるれば";
+"poem_22_lower.text" = "むべ山風を　嵐といふらむ";
+"poem_22_lower.reading" = "むべやまかぜを　あらしというらん";
+"poem_22_author" = "文屋康秀";
+
+// 23: 大江千里
+"poem_23_upper.text" = "月見れば　ちぢにものこそ　悲しけれ";
+"poem_23_upper.reading" = "つきみれば　ちぢにものこそ　かなしけれ";
+"poem_23_lower.text" = "わが身ひとつの　秋にはあらねど";
+"poem_23_lower.reading" = "わがみひとつの　あきにはあらねど";
+"poem_23_author" = "大江千里";
+
+// 24: 菅家
+"poem_24_upper.text" = "このたびは　ぬさもとりあへず　手向山";
+"poem_24_upper.reading" = "このたびは　ぬさもとりあえず　たむけやま";
+"poem_24_lower.text" = "もみぢの錦　神のまにまに";
+"poem_24_lower.reading" = "もみじのにしき　かみのまにまに";
+"poem_24_author" = "菅家";
+
+// 25: 三条右大臣
+"poem_25_upper.text" = "名にし負はば　逢坂山の　さねかづら";
+"poem_25_upper.reading" = "なにしおわば　おうさかやまの　さねかずら";
+"poem_25_lower.text" = "人に知られで　くるよしもがな";
+"poem_25_lower.reading" = "ひとにしられで　くるよしもがな";
+"poem_25_author" = "三条右大臣";
+
+// 26: 貞信公
+"poem_26_upper.text" = "小倉山　峰のもみぢ葉　心あらば";
+"poem_26_upper.reading" = "おぐらやま　みねのもみじば　こころあらば";
+"poem_26_lower.text" = "今ひとたびの　みゆき待たなむ";
+"poem_26_lower.reading" = "いまひとたびの　みゆきまたなん";
+"poem_26_author" = "貞信公";
+
+// 27: 中納言兼輔
+"poem_27_upper.text" = "みかの原　わきて流るる　泉川";
+"poem_27_upper.reading" = "みかのはら　わきてながるる　いずみがわ";
+"poem_27_lower.text" = "いつ見きとてか　恋しかるらむ";
+"poem_27_lower.reading" = "いつみきとてか　こいしかるらん";
+"poem_27_author" = "中納言兼輔";
+
+// 28: 源宗于朝臣
+"poem_28_upper.text" = "山里は　冬ぞ寂しさ　まさりける";
+"poem_28_upper.reading" = "やまざとは　ふゆぞさびしさ　まさりける";
+"poem_28_lower.text" = "人目も草も　かれぬと思へば";
+"poem_28_lower.reading" = "ひとめもくさも　かれぬとおもえば";
+"poem_28_author" = "源宗于朝臣";
+
+// 29: 凡河内躬恒
+"poem_29_upper.text" = "心あてに　折らばや折らむ　初霜の";
+"poem_29_upper.reading" = "こころあてに　おらばやおらん　はつしもの";
+"poem_29_lower.text" = "置きまどはせる　白菊の花";
+"poem_29_lower.reading" = "おきまどわせる　しらぎくのはな";
+"poem_29_author" = "凡河内躬恒";
+
+// 30: 壬生忠岑
+"poem_30_upper.text" = "有明の　つれなく見えし　別れより";
+"poem_30_upper.reading" = "ありあけの　つれなくみえし　わかれより";
+"poem_30_lower.text" = "暁ばかり　憂きものはなし";
+"poem_30_lower.reading" = "あかつきばかり　うきものはなし";
+"poem_30_author" = "壬生忠岑";
+
+// 31: 坂上是則
+"poem_31_upper.text" = "朝ぼらけ　有明の月と　見るまでに";
+"poem_31_upper.reading" = "あさぼらけ　ありあけのつきと　みるまでに";
+"poem_31_lower.text" = "吉野の里に　降れる白雪";
+"poem_31_lower.reading" = "よしののさとに　ふれるしらゆき";
+"poem_31_author" = "坂上是則";
+
+// 32: 春道列樹
+"poem_32_upper.text" = "山川に　風のかけたる　しがらみは";
+"poem_32_upper.reading" = "やまがわに　かぜのかけたる　しがらみは";
+"poem_32_lower.text" = "流れもあへぬ　紅葉なりけり";
+"poem_32_lower.reading" = "ながれもあえぬ　もみじなりけり";
+"poem_32_author" = "春道列樹";
+
+// 33: 紀友則
+"poem_33_upper.text" = "久方の　光のどけき　春の日に";
+"poem_33_upper.reading" = "ひさかたの　ひかりのどけき　はるのひに";
+"poem_33_lower.text" = "しづ心なく　花の散るらむ";
+"poem_33_lower.reading" = "しずごころなく　はなのちるらん";
+"poem_33_author" = "紀友則";
+
+// 34: 藤原興風
+"poem_34_upper.text" = "誰をかも　知る人にせむ　高砂の";
+"poem_34_upper.reading" = "たれをかも　しるひとにせん　たかさごの";
+"poem_34_lower.text" = "松も昔の　友ならなくに";
+"poem_34_lower.reading" = "まつもむかしの　ともならなくに";
+"poem_34_author" = "藤原興風";
+
+// 35: 紀貫之
+"poem_35_upper.text" = "人はいさ　心も知らず　ふるさとは";
+"poem_35_upper.reading" = "ひとはいさ　こころもしらず　ふるさとは";
+"poem_35_lower.text" = "花ぞ昔の　香ににほひける";
+"poem_35_lower.reading" = "はなぞむかしの　かににおいける";
+"poem_35_author" = "紀貫之";
+
+// 36: 清原深養父
+"poem_36_upper.text" = "夏の夜は　まだ宵ながら　明けぬるを";
+"poem_36_upper.reading" = "なつのよは　まだよいながら　あけぬるを";
+"poem_36_lower.text" = "雲のいづこに　月宿るらむ";
+"poem_36_lower.reading" = "くものいずこに　つきやどるらん";
+"poem_36_author" = "清原深養父";
+
+// 37: 文屋朝康
+"poem_37_upper.text" = "白露に　風の吹きしく　秋の野は";
+"poem_37_upper.reading" = "しらつゆに　かぜのふきしく　あきののは";
+"poem_37_lower.text" = "つらぬきとめぬ　玉ぞ散りける";
+"poem_37_lower.reading" = "つらぬきとめぬ　たまぞちりける";
+"poem_37_author" = "文屋朝康";
+
+// 38: 右近
+"poem_38_upper.text" = "忘らるる　身をば思はず　誓ひてし";
+"poem_38_upper.reading" = "わすらるる　みをばおもわず　ちかいてし";
+"poem_38_lower.text" = "人の命の　惜しくもあるかな";
+"poem_38_lower.reading" = "ひとのいのちの　おしくもあるかな";
+"poem_38_author" = "右近";
+
+// 39: 参議等
+"poem_39_upper.text" = "浅茅生の　小野の篠原　しのぶれど";
+"poem_39_upper.reading" = "あさじうの　おののしのはら　しのぶれど";
+"poem_39_lower.text" = "あまりてなどか　人の恋しき";
+"poem_39_lower.reading" = "あまりてなどか　ひとのこいしき";
+"poem_39_author" = "参議等";
+
+// 40: 平兼盛
+"poem_40_upper.text" = "忍ぶれど　色に出でにけり　わが恋は";
+"poem_40_upper.reading" = "しのぶれど　いろにいでにけり　わがこいは";
+"poem_40_lower.text" = "ものや思ふと　人の問ふまで";
+"poem_40_lower.reading" = "ものやおもうと　ひとのとうまで";
+"poem_40_author" = "平兼盛";
+
+// 41: 壬生忠見
+"poem_41_upper.text" = "恋すてふ　わが名はまだき　立ちにけり";
+"poem_41_upper.reading" = "こいすちょう　わがなはまだき　たちにけり";
+"poem_41_lower.text" = "人知れずこそ　思ひそめしか";
+"poem_41_lower.reading" = "ひとしれずこそ　おもいそめしか";
+"poem_41_author" = "壬生忠見";
+
+// 42: 清原元輔
+"poem_42_upper.text" = "契りきな　かたみに袖を　しぼりつつ";
+"poem_42_upper.reading" = "ちぎりきな　かたみにそでを　しぼりつつ";
+"poem_42_lower.text" = "末の松山　波越さじとは";
+"poem_42_lower.reading" = "すえのまつやま　なみこさじとは";
+"poem_42_author" = "清原元輔";
+
+// 43: 権中納言敦忠
+"poem_43_upper.text" = "逢ひみての　後の心に　くらぶれば";
+"poem_43_upper.reading" = "あいみての　のちのこころに　くらぶれば";
+"poem_43_lower.text" = "昔はものを　思はざりけり";
+"poem_43_lower.reading" = "むかしはものを　おもわざりけり";
+"poem_43_author" = "権中納言敦忠";
+
+// 44: 中納言朝忠
+"poem_44_upper.text" = "逢ふことの　絶えてしなくば　なかなかに";
+"poem_44_upper.reading" = "おうことの　たえてしなくば　なかなかに";
+"poem_44_lower.text" = "人をも身をも　恨みざらまし";
+"poem_44_lower.reading" = "ひとをもみをも　うらみざらまし";
+"poem_44_author" = "中納言朝忠";
+
+// 45: 謙徳公
+"poem_45_upper.text" = "あはれとも　いふべき人は　思ほえで";
+"poem_45_upper.reading" = "あわれとも　いうべきひとは　おもほえで";
+"poem_45_lower.text" = "身のいたづらに　なりぬべきかな";
+"poem_45_lower.reading" = "みのいたずらに　なりぬべきかな";
+"poem_45_author" = "謙徳公";
+
+// 46: 曾禰好忠
+"poem_46_upper.text" = "由良の門を　渡る舟人　かぢを絶え";
+"poem_46_upper.reading" = "ゆらのとを　わたるふなびと　かじをたえ";
+"poem_46_lower.text" = "行方も知らぬ　恋の道かな";
+"poem_46_lower.reading" = "ゆくえもしらぬ　こいのみちかな";
+"poem_46_author" = "曾禰好忠";
+
+// 47: 恵慶法師
+"poem_47_upper.text" = "八重葎　茂れる宿の　さびしきに";
+"poem_47_upper.reading" = "やえむぐら　しげれるやどの　さびしきに";
+"poem_47_lower.text" = "人こそ見えね　秋は来にけり";
+"poem_47_lower.reading" = "ひとこそみえね　あきはきにけり";
+"poem_47_author" = "恵慶法師";
+
+// 48: 源重之
+"poem_48_upper.text" = "風をいたみ　岩うつ波の　おのれのみ";
+"poem_48_upper.reading" = "かぜをいたみ　いわうつなみの　おのれのみ";
+"poem_48_lower.text" = "砕けてものを　思ふころかな";
+"poem_48_lower.reading" = "くだけてものを　おもうころかな";
+"poem_48_author" = "源重之";
+
+// 49: 大中臣能宣朝臣
+"poem_49_upper.text" = "御垣守　衛士のたく火の　夜はもえ";
+"poem_49_upper.reading" = "みかきもり　えじのたくひの　よるはもえ";
+"poem_49_lower.text" = "昼は消えつつ　ものをこそ思へ";
+"poem_49_lower.reading" = "ひるはきえつつ　ものをこそおもえ";
+"poem_49_author" = "大中臣能宣朝臣";
+
+// 50: 藤原義孝
+"poem_50_upper.text" = "君がため　惜しからざりし　命さへ";
+"poem_50_upper.reading" = "きみがため　おしからざりし　いのちさえ";
+"poem_50_lower.text" = "長くもがなと　思ひけるかな";
+"poem_50_lower.reading" = "ながくもがなと　おもいけるかな";
+"poem_50_author" = "藤原義孝";
+
+// 51: 藤原実方朝臣
+"poem_51_upper.text" = "かくとだに　えやはいぶきの　さしも草";
+"poem_51_upper.reading" = "かくとだに　えやはいぶきの　さしもぐさ";
+"poem_51_lower.text" = "さしも知らじな　燃ゆる思ひを";
+"poem_51_lower.reading" = "さしもしらじな　もゆるおもいを";
+"poem_51_author" = "藤原実方朝臣";
+
+// 52: 藤原道信朝臣
+"poem_52_upper.text" = "明けぬれば　暮るるものとは　知りながら";
+"poem_52_upper.reading" = "あけぬれば　くるるものとは　しりながら";
+"poem_52_lower.text" = "なほ恨めしき　朝ぼらけかな";
+"poem_52_lower.reading" = "なおうらめしき　あさぼらけかな";
+"poem_52_author" = "藤原道信朝臣";
+
+// 53: 右大将道綱母
+"poem_53_upper.text" = "嘆きつつ　独り寝る夜の　明くるまは";
+"poem_53_upper.reading" = "なげきつつ　ひとりぬるよの　あくるまは";
+"poem_53_lower.text" = "いかに久しき　ものとかは知る";
+"poem_53_lower.reading" = "いかにひさしき　ものとかはしる";
+"poem_53_author" = "右大将道綱母";
+
+// 54: 儀同三司母
+"poem_54_upper.text" = "忘れじの　行く末までは　難ければ";
+"poem_54_upper.reading" = "わすれじの　ゆくすえまでは　かたければ";
+"poem_54_lower.text" = "今日を限りの　命ともがな";
+"poem_54_lower.reading" = "きょうをかぎりの　いのちともがな";
+"poem_54_author" = "儀同三司母";
+
+// 55: 大納言公任
+"poem_55_upper.text" = "滝の音は　絶えて久しく　なりぬれど";
+"poem_55_upper.reading" = "たきのおとは　たえてひさしく　なりぬれど";
+"poem_55_lower.text" = "名こそ流れて　なほ聞こえけれ";
+"poem_55_lower.reading" = "なこそながれて　なおきこえけれ";
+"poem_55_author" = "大納言公任";
+
+// 56: 和泉式部
+"poem_56_upper.text" = "あらざらむ　この世のほかの　思ひ出に";
+"poem_56_upper.reading" = "あらざらん　このよのほかの　おもいでに";
+"poem_56_lower.text" = "今ひとたびの　逢ふこともがな";
+"poem_56_lower.reading" = "いまひとたびの　あうこともがな";
+"poem_56_author" = "和泉式部";
+
+// 57: 紫式部
+"poem_57_upper.text" = "めぐりあひて　見しやそれとも　わかぬまに";
+"poem_57_upper.reading" = "めぐりあいて　みしやそれとも　わかぬまに";
+"poem_57_lower.text" = "雲がくれにし　夜半の月かな";
+"poem_57_lower.reading" = "くもがくれにし　よわのつきかな";
+"poem_57_author" = "紫式部";
+
+// 58: 大弐三位
+"poem_58_upper.text" = "ありま山　ゐなの笹原　風吹けば";
+"poem_58_upper.reading" = "ありまやま　いなのささはら　かぜふけば";
+"poem_58_lower.text" = "いでそよ人を　忘れやはする";
+"poem_58_lower.reading" = "いでそよひとを　わすれやはする";
+"poem_58_author" = "大弐三位";
+
+// 59: 赤染衛門
+"poem_59_upper.text" = "やすらはで　寝なましものを　さ夜更けて";
+"poem_59_upper.reading" = "やすらわで　ねなましものを　さよふけて";
+"poem_59_lower.text" = "かたぶくまでの　月を見しかな";
+"poem_59_lower.reading" = "かたぶくまでの　つきをみしかな";
+"poem_59_author" = "赤染衛門";
+
+// 60: 小式部内侍
+"poem_60_upper.text" = "大江山　いく野の道の　遠ければ";
+"poem_60_upper.reading" = "おおえやま　いくののみちの　とおければ";
+"poem_60_lower.text" = "まだふみも見ず　天の橋立";
+"poem_60_lower.reading" = "まだふみもみず　あまのはしだて";
+"poem_60_author" = "小式部内侍";
+
+// 61: 伊勢大輔
+"poem_61_upper.text" = "いにしへの　奈良の都の　八重桜";
+"poem_61_upper.reading" = "いにしえの　ならのみやこの　やえざくら";
+"poem_61_lower.text" = "けふ九重に　にほひぬるかな";
+"poem_61_lower.reading" = "きょうここのえに　においぬるかな";
+"poem_61_author" = "伊勢大輔";
+
+// 62: 清少納言
+"poem_62_upper.text" = "夜をこめて　鳥のそらねは　はかるとも";
+"poem_62_upper.reading" = "よをこめて　とりのそらねは　はかるとも";
+"poem_62_lower.text" = "よに逢坂の　関はゆるさじ";
+"poem_62_lower.reading" = "よにおうさかの　せきはゆるさじ";
+"poem_62_author" = "清少納言";
+
+// 63: 左京大夫道雅
+"poem_63_upper.text" = "今はただ　思ひ絶えなむ　とばかりを";
+"poem_63_upper.reading" = "いまはただ　おもいたえなん　とばかりを";
+"poem_63_lower.text" = "人づてならで　言ふよしもがな";
+"poem_63_lower.reading" = "ひとづてならで　いうよしもがな";
+"poem_63_author" = "左京大夫道雅";
+
+// 64: 権中納言定頼
+"poem_64_upper.text" = "朝ぼらけ　宇治の川霧　たえだえに";
+"poem_64_upper.reading" = "あさぼらけ　うじのかわぎり　たえだえに";
+"poem_64_lower.text" = "あらはれわたる　瀬々の網代木";
+"poem_64_lower.reading" = "あらわれわたる　せぜのあじろぎ";
+"poem_64_author" = "権中納言定頼";
+
+// 65: 相模
+"poem_65_upper.text" = "恨みわび　ほさぬ袖だに　あるものを";
+"poem_65_upper.reading" = "うらみわび　ほさぬそでだに　あるものを";
+"poem_65_lower.text" = "恋にくちなむ　名こそ惜しけれ";
+"poem_65_lower.reading" = "こいにくちなん　なこそおしけれ";
+"poem_65_author" = "相模";
+
+// 66: 前大僧正行尊
+"poem_66_upper.text" = "もろともに　あはれと思へ　山桜";
+"poem_66_upper.reading" = "もろともに　あわれとおもえ　やまざくら";
+"poem_66_lower.text" = "花よりほかに　知る人もなし";
+"poem_66_lower.reading" = "はなよりほかに　しるひともなし";
+"poem_66_author" = "前大僧正行尊";
+
+// 67: 周防内侍
+"poem_67_upper.text" = "春の夜の　夢ばかりなる　手枕に";
+"poem_67_upper.reading" = "はるのよの　ゆめばかりなる　たまくらに";
+"poem_67_lower.text" = "かひなく立たむ　名こそ惜しけれ";
+"poem_67_lower.reading" = "かいなくたたん　なこそおしけれ";
+"poem_67_author" = "周防内侍";
+
+// 68: 三条院
+"poem_68_upper.text" = "心にも　あらでうき世に　ながらへば";
+"poem_68_upper.reading" = "こころにも　あらでうきよに　ながらえば";
+"poem_68_lower.text" = "恋しかるべき　夜半の月かな";
+"poem_68_lower.reading" = "こいしかるべき　よわのつきかな";
+"poem_68_author" = "三条院";
+
+// 69: 能因法師
+"poem_69_upper.text" = "あらし吹く　み室の山の　もみぢ葉は";
+"poem_69_upper.reading" = "あらしふく　みむろのやまの　もみじばは";
+"poem_69_lower.text" = "竜田の川の　錦なりけり";
+"poem_69_lower.reading" = "たつたのかわの　にしきなりけり";
+"poem_69_author" = "能因法師";
+
+// 70: 良暹法師
+"poem_70_upper.text" = "さびしさに　宿をたち出でて　ながむれば";
+"poem_70_upper.reading" = "さびしさに　やどをたちいでて　ながむれば";
+"poem_70_lower.text" = "いづこも同じ　秋の夕暮れ";
+"poem_70_lower.reading" = "いずこもおなじ　あきのゆうぐれ";
+"poem_70_author" = "良暹法師";
+
+// 71: 大納言経信
+"poem_71_upper.text" = "夕されば　門田の稲葉　おとづれて";
+"poem_71_upper.reading" = "ゆうされば　かどたのいなば　おとずれて";
+"poem_71_lower.text" = "葦のまろ屋に　秋風ぞ吹く";
+"poem_71_lower.reading" = "あしのまろやに　あきかぜぞふく";
+"poem_71_author" = "大納言経信";
+
+// 72: 祐子内親王家紀伊
+"poem_72_upper.text" = "音にきく　高師の浜の　あだ波は";
+"poem_72_upper.reading" = "おとにきく　たかしのはまの　あだなみは";
+"poem_72_lower.text" = "かけじや袖の　ぬれもこそすれ";
+"poem_72_lower.reading" = "かけじやそでの　ぬれもこそすれ";
+"poem_72_author" = "祐子内親王家紀伊";
+
+// 73: 前中納言匡房
+"poem_73_upper.text" = "高砂の　尾の上の桜　咲きにけり";
+"poem_73_upper.reading" = "たかさごの　おのえのさくら　さきにけり";
+"poem_73_lower.text" = "外山のかすみ　立たずもあらなむ";
+"poem_73_lower.reading" = "とやまのかすみ　たたずもあらなん";
+"poem_73_author" = "前中納言匡房";
+
+// 74: 源俊頼朝臣
+"poem_74_upper.text" = "憂かりける　人を初瀬の　山おろしよ";
+"poem_74_upper.reading" = "うかりける　ひとをはつせの　やまおろしよ";
+"poem_74_lower.text" = "はげしかれとは　祈らぬものを";
+"poem_74_lower.reading" = "はげしかれとは　いのらぬものを";
+"poem_74_author" = "源俊頼朝臣";
+
+// 75: 藤原基俊
+"poem_75_upper.text" = "契りおきし　させもが露を　命にて";
+"poem_75_upper.reading" = "ちぎりおきし　させもがつゆを　いのちにて";
+"poem_75_lower.text" = "あはれ今年の　秋もいぬめり";
+"poem_75_lower.reading" = "あわれことしの　あきもいぬめり";
+"poem_75_author" = "藤原基俊";
+
+// 76: 法性寺入道前関白太政大臣
+"poem_76_upper.text" = "わたの原　こぎ出でてみれば　久方の";
+"poem_76_upper.reading" = "わたのはら　こぎいでてみれば　ひさかたの";
+"poem_76_lower.text" = "雲居にまがふ　沖つ白波";
+"poem_76_lower.reading" = "くもいにまがう　おきつしらなみ";
+"poem_76_author" = "法性寺入道前関白太政大臣";
+
+// 77: 崇徳院
+"poem_77_upper.text" = "瀬を早み　岩にせかるる　滝川の";
+"poem_77_upper.reading" = "せをはやみ　いわにせかるる　たきがわの";
+"poem_77_lower.text" = "われても末に　あはむとぞ思ふ";
+"poem_77_lower.reading" = "われてもすえに　あわんとぞおもう";
+"poem_77_author" = "崇徳院";
+
+// 78: 源兼昌
+"poem_78_upper.text" = "淡路島　かよふ千鳥の　鳴く声に";
+"poem_78_upper.reading" = "あわじしま　かようちどりの　なくこえに";
+"poem_78_lower.text" = "幾夜寝覚めぬ　須磨の関守";
+"poem_78_lower.reading" = "いくよねざめぬ　すまのせきもり";
+"poem_78_author" = "源兼昌";
+
+// 79: 左京大夫顕輔
+"poem_79_upper.text" = "秋風に　たなびく雲の　絶え間より";
+"poem_79_upper.reading" = "あきかぜに　たなびくくもの　たえまより";
+"poem_79_lower.text" = "もれ出づる月の　影のさやけさ";
+"poem_79_lower.reading" = "もれいずるつきの　かげのさやけさ";
+"poem_79_author" = "左京大夫顕輔";
+
+// 80: 待賢門院堀河
+"poem_80_upper.text" = "ながからむ　心も知らず　黒髪の";
+"poem_80_upper.reading" = "ながからん　こころもしらず　くろかみの";
+"poem_80_lower.text" = "乱れて今朝は　ものをこそ思へ";
+"poem_80_lower.reading" = "みだれてけさは　ものをこそおもえ";
+"poem_80_author" = "待賢門院堀河";
+
+// 81: 後徳大寺左大臣
+"poem_81_upper.text" = "ほととぎす　鳴きつる方を　眺むれば";
+"poem_81_upper.reading" = "ほととぎす　なきつるかたを　ながむれば";
+"poem_81_lower.text" = "ただ有明の　月ぞ残れる";
+"poem_81_lower.reading" = "ただありあけの　つきぞのこれる";
+"poem_81_author" = "後徳大寺左大臣";
+
+// 82: 道因法師
+"poem_82_upper.text" = "思ひわび　さても命は　あるものを";
+"poem_82_upper.reading" = "おもいわび　さてもいのちは　あるものを";
+"poem_82_lower.text" = "憂きに堪へぬは　涙なりけり";
+"poem_82_lower.reading" = "うきにたえぬは　なみだなりけり";
+"poem_82_author" = "道因法師";
+
+// 83: 皇太后宮大夫俊成
+"poem_83_upper.text" = "世の中よ　道こそなけれ　思ひ入る";
+"poem_83_upper.reading" = "よのなかよ　みちこそなけれ　おもいいる";
+"poem_83_lower.text" = "山の奥にも　鹿ぞ鳴くなる";
+"poem_83_lower.reading" = "やまのおくにも　しかぞなくなる";
+"poem_83_author" = "皇太后宮大夫俊成";
+
+// 84: 藤原清輔朝臣
+"poem_84_upper.text" = "ながらへば　またこの頃や　しのばれむ";
+"poem_84_upper.reading" = "ながらえば　またこのごろや　しのばれん";
+"poem_84_lower.text" = "憂しと見し世ぞ　今は恋しき";
+"poem_84_lower.reading" = "うしとみしよぞ　いまはこいしき";
+"poem_84_author" = "藤原清輔朝臣";
+
+// 85: 俊恵法師
+"poem_85_upper.text" = "夜もすがら　物思ふころは　明けやらで";
+"poem_85_upper.reading" = "よもすがら　ものおもうころは　あけやらで";
+"poem_85_lower.text" = "閨のひまさへ　つれなかりけり";
+"poem_85_lower.reading" = "ねやのひまさえ　つれなかりけり";
+"poem_85_author" = "俊恵法師";
+
+// 86: 西行法師
+"poem_86_upper.text" = "嘆けとて　月やは物を　思はする";
+"poem_86_upper.reading" = "なげけとて　つきやはものを　おもわする";
+"poem_86_lower.text" = "かこち顔なる　わが涙かな";
+"poem_86_lower.reading" = "かこちがおなる　わがなみだかな";
+"poem_86_author" = "西行法師";
+
+// 87: 寂蓮法師
+"poem_87_upper.text" = "村雨の　露もまだひぬ　槙の葉に";
+"poem_87_upper.reading" = "むらさめの　つゆもまだひぬ　まきのはに";
+"poem_87_lower.text" = "霧立ちのぼる　秋の夕暮れ";
+"poem_87_lower.reading" = "きりたちのぼる　あきのゆうぐれ";
+"poem_87_author" = "寂蓮法師";
+
+// 88: 皇嘉門院別当
+"poem_88_upper.text" = "難波江の　葦のかりねの　一夜ゆゑ";
+"poem_88_upper.reading" = "なにわえの　あしのかりねの　ひとよゆえ";
+"poem_88_lower.text" = "みをつくしてや　恋ひわたるべき";
+"poem_88_lower.reading" = "みをつくしてや　こいわたるべき";
+"poem_88_author" = "皇嘉門院別当";
+
+// 89: 式子内親王
+"poem_89_upper.text" = "玉の緒よ　絶えなば絶えね　ながらへば";
+"poem_89_upper.reading" = "たまのおよ　たえなばたえね　ながらえば";
+"poem_89_lower.text" = "忍ぶることの　弱りもぞする";
+"poem_89_lower.reading" = "しのぶることの　よわりもぞする";
+"poem_89_author" = "式子内親王";
+
+// 90: 殷富門院大輔
+"poem_90_upper.text" = "見せばやな　雄島のあまの　袖だにも";
+"poem_90_upper.reading" = "みせばやな　おじまのあまの　そでだにも";
+"poem_90_lower.text" = "濡れにぞ濡れし　色は変はらず";
+"poem_90_lower.reading" = "ぬれにぞぬれし　いろはかわらず";
+"poem_90_author" = "殷富門院大輔";
+
+// 91: 後京極摂政前太政大臣
+"poem_91_upper.text" = "きりぎりす　鳴くや霜夜の　さむしろに";
+"poem_91_upper.reading" = "きりぎりす　なくやしもよの　さむしろに";
+"poem_91_lower.text" = "衣かたしき　ひとりかも寝む";
+"poem_91_lower.reading" = "ころもかたしき　ひとりかもねん";
+"poem_91_author" = "後京極摂政前太政大臣";
+
+// 92: 二条院讃岐
+"poem_92_upper.text" = "わが袖は　潮干に見えぬ　沖の石の";
+"poem_92_upper.reading" = "わがそでは　しおひにみえぬ　おきのいしの";
+"poem_92_lower.text" = "人こそ知らね　乾く間もなし";
+"poem_92_lower.reading" = "ひとこそしらね　かわくまもなし";
+"poem_92_author" = "二条院讃岐";
+
+// 93: 鎌倉右大臣
+"poem_93_upper.text" = "世の中は　常にもがもな　渚こぐ";
+"poem_93_upper.reading" = "よのなかは　つねにもがもな　なぎさこぐ";
+"poem_93_lower.text" = "あまの小舟の　綱手かなしも";
+"poem_93_lower.reading" = "あまのおぶねの　つなでかなしも";
+"poem_93_author" = "鎌倉右大臣";
+
+// 94: 参議雅経
+"poem_94_upper.text" = "み吉野の　山の秋風　小夜更けて";
+"poem_94_upper.reading" = "みよしのの　やまのあきかぜ　さよふけて";
+"poem_94_lower.text" = "ふるさと寒く　衣うつなり";
+"poem_94_lower.reading" = "ふるさとさむく　ころもうつなり";
+"poem_94_author" = "参議雅経";
+
+// 95: 前大僧正慈円
+"poem_95_upper.text" = "おほけなく　うき世の民に　おほふかな";
+"poem_95_upper.reading" = "おおけなく　うきよのたみに　おおうかな";
+"poem_95_lower.text" = "わが立つ杣に　墨染の袖";
+"poem_95_lower.reading" = "わがたつそまに　すみぞめのそで";
+"poem_95_author" = "前大僧正慈円";
+
+// 96: 入道前太政大臣
+"poem_96_upper.text" = "花さそふ　嵐の庭の　雪ならで";
+"poem_96_upper.reading" = "はなさそう　あらしのにわの　ゆきならで";
+"poem_96_lower.text" = "ふりゆくものは　わが身なりけり";
+"poem_96_lower.reading" = "ふりゆくものは　わがみなりけり";
+"poem_96_author" = "入道前太政大臣";
+
+// 97: 権中納言定家
+"poem_97_upper.text" = "来ぬ人を　松帆の浦の　夕なぎに";
+"poem_97_upper.reading" = "こぬひとを　まつほのうらの　ゆうなぎに";
+"poem_97_lower.text" = "焼くや藻塩の　身もこがれつつ";
+"poem_97_lower.reading" = "やくやもしおの　みもこがれつつ";
+"poem_97_author" = "権中納言定家";
+
+// 98: 従二位家隆
+"poem_98_upper.text" = "風そよぐ　楢の小川の　夕暮は";
+"poem_98_upper.reading" = "かぜそよぐ　ならのおがわの　ゆうぐれは";
+"poem_98_lower.text" = "みそぎぞ夏の　しるしなりける";
+"poem_98_lower.reading" = "みそぎぞなつの　しるしなりける";
+"poem_98_author" = "従二位家隆";
+
+// 99: 後鳥羽院
+"poem_99_upper.text" = "人もをし　人も恨めし　あぢきなく";
+"poem_99_upper.reading" = "ひともおし　ひともうらめし　あじきなく";
+"poem_99_lower.text" = "世を思ふゆゑに　もの思ふ身は";
+"poem_99_lower.reading" = "よをおもうゆえに　ものおもうみは";
+"poem_99_author" = "後鳥羽院";
+
+// 100: 順徳院
+"poem_100_upper.text" = "百敷や　古き軒端の　しのぶにも";
+"poem_100_upper.reading" = "ももしきや　ふるきのきばの　しのぶにも";
+"poem_100_lower.text" = "なほあまりある　昔なりけり";
+"poem_100_lower.reading" = "なおあまりある　むかしなりけり";
+"poem_100_author" = "順徳院";
