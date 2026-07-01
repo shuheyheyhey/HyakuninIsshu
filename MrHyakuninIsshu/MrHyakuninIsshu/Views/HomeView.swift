@@ -18,6 +18,15 @@ struct HomeView: View {
             }
         }
         .navigationTitle("ミスター百人一首")
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                NavigationLink {
+                    GroupEditView()
+                } label: {
+                    Label("グループを追加", systemImage: "plus")
+                }
+            }
+        }
     }
 }
 
