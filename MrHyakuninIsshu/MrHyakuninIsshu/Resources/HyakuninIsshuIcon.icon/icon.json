@@ -1,0 +1,47 @@
+{
+  "fill" : {
+    "automatic-gradient" : "extended-srgb:0.00000,0.53333,1.00000,1.00000"
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "image-name" : "ChatGPT Image 2026年7月1日 23_56_00.png",
+          "name" : "ChatGPT Image 2026年7月1日 23_56_00",
+          "position" : {
+            "scale" : 1.51,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "image-name" : "ChatGPT Image 2026年7月1日 23_59_09.png",
+          "name" : "ChatGPT Image 2026年7月1日 23_59_09",
+          "position" : {
+            "scale" : 2.14,
+            "translation-in-points" : [
+              4.860000000000014,
+              -3.1399999999998727
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : false,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
