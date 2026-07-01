@@ -30,7 +30,9 @@ struct MrHyakuninIsshuApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                HomeView()
+            }
         }
         .modelContainer(sharedModelContainer)
     }
