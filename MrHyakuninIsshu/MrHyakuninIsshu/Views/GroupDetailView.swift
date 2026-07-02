@@ -12,6 +12,7 @@ struct GroupDetailView: View {
     @Query(sort: \Card.number) private var allCards: [Card]
 
     @State private var searchText: String = ""
+    @State private var selectedCard: Card?
 
     private let columns = [GridItem(.adaptive(minimum: 150), spacing: 8)]
 
@@ -39,8 +40,8 @@ struct GroupDetailView: View {
 
                 LazyVGrid(columns: columns, spacing: 8) {
                     ForEach(cards) { card in
-                        NavigationLink {
-                            CardPreviewView(card: card)
+                        Button {
+                            selectedCard = card
                         } label: {
                             CardView(card: card, backgroundColor: Color(hex: colorHex).opacity(0.3))
                         }
@@ -61,6 +62,9 @@ struct GroupDetailView: View {
                     }
                 }
             }
+        }
+        .sheet(item: $selectedCard) { card in
+            CardPreviewView(card: card, borderColorHex: colorHex)
         }
     }
 }
