@@ -11,11 +11,18 @@ struct GroupDetailView: View {
 
     @Query(sort: \Card.number) private var allCards: [Card]
 
+    @State private var searchText: String = ""
+
     private let columns = [GridItem(.adaptive(minimum: 150), spacing: 8)]
 
     private var cards: [Card] {
-        guard let group else { return allCards }
-        return group.cards.sorted { $0.number < $1.number }
+        let groupCards: [Card]
+        if let group {
+            groupCards = group.cards.sorted { $0.number < $1.number }
+        } else {
+            groupCards = allCards
+        }
+        return groupCards.filtered(bySearchText: searchText)
     }
 
     private var colorHex: String {
@@ -37,6 +44,7 @@ struct GroupDetailView: View {
             .padding()
         }
         .navigationTitle(group?.name ?? "全カード")
+        .searchable(text: $searchText, prompt: "カードを検索")
         .toolbar {
             if let group {
                 ToolbarItem(placement: .primaryAction) {
