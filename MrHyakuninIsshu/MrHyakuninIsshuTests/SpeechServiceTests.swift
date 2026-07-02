@@ -28,3 +28,7 @@ struct SpeechServiceTests {
         #expect(SpeechService.playbackSource(for: phraseID) == .recording)
     }
 }
+
+// Note: `SpeechService.playAsync`'s interrupted/finished continuation behavior is exercised
+// indirectly via `PlaySessionModelTests`' `FakeSpeechService`, which avoids driving real
+// AVSpeechSynthesizer/AVAudioSession playback in a unit test (slow and environment-dependent).
