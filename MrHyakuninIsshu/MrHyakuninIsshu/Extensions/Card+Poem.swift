@@ -13,6 +13,14 @@ extension Card {
     var lowerText: String {
         NSLocalizedString("\(lowerPhraseID).text", tableName: "Poems", bundle: .main, comment: "")
     }
+
+    var upperReading: String {
+        NSLocalizedString("\(upperPhraseID).reading", tableName: "Poems", bundle: .main, comment: "")
+    }
+
+    var lowerReading: String {
+        NSLocalizedString("\(lowerPhraseID).reading", tableName: "Poems", bundle: .main, comment: "")
+    }
 }
 
 extension Sequence where Element == Card {

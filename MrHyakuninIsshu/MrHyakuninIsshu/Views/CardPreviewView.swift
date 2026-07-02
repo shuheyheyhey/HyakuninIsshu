@@ -21,7 +21,11 @@ struct CardPreviewView: View {
         VStack(spacing: 32) {
             Spacer()
 
-            cardFace(text: isBackFace ? card.lowerText : card.upperText)
+            cardFace(
+                label: isBackFace ? "下の句" : "上の句",
+                text: isBackFace ? card.lowerText : card.upperText,
+                reading: isBackFace ? card.lowerReading : card.upperReading
+            )
                 .rotation3DEffect(.degrees(isBackFace ? 180 : 0), axis: (x: 0, y: 1, z: 0))
                 .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
                 .onTapGesture {
@@ -52,19 +56,32 @@ struct CardPreviewView: View {
         .padding()
     }
 
-    private func cardFace(text: String) -> some View {
+    private func cardFace(label: String, text: String, reading: String) -> some View {
         RoundedRectangle(cornerRadius: 24)
             .fill(Color(.secondarySystemBackground))
             .overlay(
                 RoundedRectangle(cornerRadius: 24)
                     .stroke(Color(hex: borderColorHex), lineWidth: 6)
             )
-            .overlay(
-                Text(text)
-                    .font(.title2)
-                    .multilineTextAlignment(.center)
-                    .padding(24)
-            )
+            .overlay(alignment: .topLeading) {
+                Text(label)
+                    .font(.caption)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.secondary)
+                    .padding(16)
+            }
+            .overlay {
+                VStack(spacing: 16) {
+                    Text(text)
+                        .font(.title2)
+                        .multilineTextAlignment(.center)
+                    Text(reading)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                }
+                .padding(24)
+            }
             .frame(height: 340)
             .padding(.horizontal, 24)
             .shadow(radius: 8)
