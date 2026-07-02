@@ -16,11 +16,21 @@ struct GroupEditView: View {
     @State private var name: String = ""
     @State private var color: Color = .blue
     @State private var selectedCardIDs: Set<PersistentIdentifier> = []
+    @State private var searchText: String = ""
 
     private let columns = [GridItem(.adaptive(minimum: 150), spacing: 8)]
 
     private var isSaveDisabled: Bool {
         name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || selectedCardIDs.isEmpty
+    }
+
+    private var filteredCards: [Card] {
+        guard !searchText.isEmpty else { return cards }
+        return cards.filter { card in
+            String(card.number).contains(searchText)
+            || card.upperText.contains(searchText)
+            || card.lowerText.contains(searchText)
+        }
     }
 
     var body: some View {
@@ -34,7 +44,7 @@ struct GroupEditView: View {
                 .padding(.horizontal)
 
                 LazyVGrid(columns: columns, spacing: 8) {
-                    ForEach(cards) { card in
+                    ForEach(filteredCards) { card in
                         CardView(card: card, isSelected: selectedCardIDs.contains(card.persistentModelID))
                             .onTapGesture {
                                 toggleSelection(of: card)
@@ -46,6 +56,7 @@ struct GroupEditView: View {
             .padding(.vertical)
         }
         .navigationTitle("グループを作成")
+        .searchable(text: $searchText, prompt: "カードを検索")
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
                 Button("保存") {
