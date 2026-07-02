@@ -63,8 +63,18 @@ struct GroupDetailView: View {
                 }
             }
         }
+        .overlay {
+            if selectedCard != nil {
+                Color.clear
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        selectedCard = nil
+                    }
+            }
+        }
         .sheet(item: $selectedCard) { card in
             CardPreviewView(card: card, borderColorHex: colorHex)
+                .presentationBackgroundInteraction(.enabled)
         }
     }
 }

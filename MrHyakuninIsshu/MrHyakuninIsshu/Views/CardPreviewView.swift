@@ -9,8 +9,6 @@ struct CardPreviewView: View {
     let card: Card
     let borderColorHex: String
 
-    @Environment(\.dismiss) private var dismiss
-
     @State private var rotation: Double = 0
     @State private var audioRecorder = AudioRecorder()
     @State private var speechService = SpeechService()
@@ -42,65 +40,63 @@ struct CardPreviewView: View {
     }
 
     var body: some View {
-        ZStack {
-            Color.clear
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    handleBackgroundTap()
-                }
+        VStack(spacing: 32) {
+            Spacer()
 
-            VStack(spacing: 32) {
-                Spacer()
-
-                cardFace(
-                    label: isBackFace ? "下の句" : "上の句",
-                    text: isBackFace ? card.lowerText : card.upperText,
-                    reading: isBackFace ? card.lowerReading : card.upperReading
-                )
-                    .rotation3DEffect(.degrees(isBackFace ? 180 : 0), axis: (x: 0, y: 1, z: 0))
-                    .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
-                    .onTapGesture {
+            cardFace(
+                label: isBackFace ? "下の句" : "上の句",
+                text: isBackFace ? card.lowerText : card.upperText,
+                reading: isBackFace ? card.lowerReading : card.upperReading
+            )
+                .rotation3DEffect(.degrees(isBackFace ? 180 : 0), axis: (x: 0, y: 1, z: 0))
+                .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
+                .highPriorityGesture(
+                    TapGesture().onEnded {
                         guard !isBusy else { return }
                         withAnimation(.easeInOut(duration: 0.5)) {
                             rotation += 180
                         }
                     }
+                )
 
-                Spacer()
+            Spacer()
 
-                VStack(spacing: 16) {
-                    HStack(spacing: 48) {
-                        Button {
-                            handleRecordTap()
-                        } label: {
-                            Image(systemName: audioRecorder.isRecording ? "stop.circle.fill" : "mic.circle.fill")
-                                .font(.system(size: 48))
-                                .foregroundStyle(.red)
-                        }
-                        .disabled(speechService.isPlaying)
-
-                        Button {
-                            handlePlayTap()
-                        } label: {
-                            Image(systemName: speechService.isPlaying ? "stop.circle.fill" : "play.circle.fill")
-                                .font(.system(size: 48))
-                                .foregroundStyle(speechService.isPlaying ? .red : .accentColor)
-                        }
-                        .disabled(audioRecorder.isRecording)
-                    }
-
-                    Button(role: .destructive) {
-                        showsDeleteConfirmation = true
+            VStack(spacing: 16) {
+                HStack(spacing: 48) {
+                    Button {
+                        handleRecordTap()
                     } label: {
-                        Label("録音を削除", systemImage: "trash")
+                        Image(systemName: audioRecorder.isRecording ? "stop.circle.fill" : "mic.circle.fill")
+                            .font(.system(size: 48))
+                            .foregroundStyle(.red)
                     }
-                    .disabled(!hasCurrentRecording || isBusy)
+                    .disabled(speechService.isPlaying)
+
+                    Button {
+                        handlePlayTap()
+                    } label: {
+                        Image(systemName: speechService.isPlaying ? "stop.circle.fill" : "play.circle.fill")
+                            .font(.system(size: 48))
+                            .foregroundStyle(speechService.isPlaying ? .red : .accentColor)
+                    }
+                    .disabled(audioRecorder.isRecording)
                 }
-                .padding(.bottom, 40)
+
+                Button(role: .destructive) {
+                    showsDeleteConfirmation = true
+                } label: {
+                    Label("録音を削除", systemImage: "trash")
+                }
+                .disabled(!hasCurrentRecording || isBusy)
             }
-            .padding()
+            .padding(.bottom, 40)
         }
+        .padding()
         .interactiveDismissDisabled(isBusy)
+        .onDisappear {
+            audioRecorder.stopRecording()
+            speechService.stop()
+        }
         .onChange(of: audioRecorder.isRecording) { _, isRecording in
             if !isRecording {
                 recordingRefreshTrigger += 1
@@ -121,13 +117,6 @@ struct CardPreviewView: View {
                 recordingRefreshTrigger += 1
             }
         }
-    }
-
-    private func handleBackgroundTap() {
-        guard isBusy else { return }
-        audioRecorder.stopRecording()
-        speechService.stop()
-        dismiss()
     }
 
     private func handleRecordTap() {
