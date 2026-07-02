@@ -36,12 +36,7 @@ struct GroupEditView: View {
     }
 
     private var filteredCards: [Card] {
-        guard !searchText.isEmpty else { return cards }
-        return cards.filter { card in
-            String(card.number).contains(searchText)
-            || card.upperText.contains(searchText)
-            || card.lowerText.contains(searchText)
-        }
+        cards.filtered(bySearchText: searchText)
     }
 
     var body: some View {
@@ -53,6 +48,11 @@ struct GroupEditView: View {
                     ColorPicker("グループカラー", selection: $color)
                 }
                 .padding(.horizontal)
+
+                Text("\(selectedCardIDs.count)件選択中")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .padding(.horizontal)
 
                 LazyVGrid(columns: columns, spacing: 8) {
                     ForEach(filteredCards) { card in

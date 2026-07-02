@@ -14,3 +14,14 @@ extension Card {
         NSLocalizedString("\(lowerPhraseID).text", tableName: "Poems", bundle: .main, comment: "")
     }
 }
+
+extension Sequence where Element == Card {
+    func filtered(bySearchText searchText: String) -> [Card] {
+        guard !searchText.isEmpty else { return Array(self) }
+        return filter { card in
+            String(card.number).contains(searchText)
+            || card.upperText.contains(searchText)
+            || card.lowerText.contains(searchText)
+        }
+    }
+}
