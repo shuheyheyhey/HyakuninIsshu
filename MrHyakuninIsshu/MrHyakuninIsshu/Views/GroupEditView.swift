@@ -88,7 +88,10 @@ struct GroupEditView: View {
     }
 
     private func save() {
-        let selectedCards = cards.filter { selectedCardIDs.contains($0.persistentModelID) }
+        // Resolve through `modelContext` rather than filtering the `@Query` array directly —
+        // assigning objects fetched under a different context to a relationship crashes with
+        // "Illegal attempt to establish a relationship... between objects in different contexts".
+        let selectedCards = selectedCardIDs.compactMap { modelContext.model(for: $0) as? Card }
         let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
 
         if let existingGroup {
@@ -100,10 +103,13 @@ struct GroupEditView: View {
             let newGroup = TagGroup(
                 name: trimmedName,
                 colorHex: color.toHex(),
-                sortOrder: nextSortOrder,
-                cards: selectedCards
+                sortOrder: nextSortOrder
             )
+            // Insert before assigning `cards` — until it's inserted, `newGroup` doesn't belong to
+            // any context, and linking it to already-managed Cards crashes with the same
+            // "different contexts" error the Card-side fix above addresses.
             modelContext.insert(newGroup)
+            newGroup.cards = selectedCards
         }
         dismiss()
     }
