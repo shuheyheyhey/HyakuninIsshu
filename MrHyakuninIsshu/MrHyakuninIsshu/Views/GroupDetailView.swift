@@ -11,9 +11,13 @@ struct GroupDetailView: View {
 
     @Query(sort: \Card.number) private var allCards: [Card]
 
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
+
     @State private var searchText: String = ""
     @State private var selectedCard: Card?
     @State private var showingPlayView = false
+    @State private var showsDeleteConfirmation = false
 
     private let columns = [GridItem(.adaptive(minimum: 150), spacing: 8)]
 
@@ -62,6 +66,11 @@ struct GroupDetailView: View {
                         GroupEditView(existingGroup: group)
                     }
                 }
+                ToolbarItem(placement: .destructiveAction) {
+                    Button("削除", role: .destructive) {
+                        showsDeleteConfirmation = true
+                    }
+                }
             }
             ToolbarItem(placement: .primaryAction) {
                 Button("プレイ") {
@@ -69,6 +78,17 @@ struct GroupDetailView: View {
                 }
                 .disabled(cards.isEmpty)
             }
+        }
+        .alert("「\(group?.name ?? "")」を削除しますか？", isPresented: $showsDeleteConfirmation) {
+            Button("キャンセル", role: .cancel) {}
+            Button("削除", role: .destructive) {
+                if let group {
+                    modelContext.delete(group)
+                }
+                dismiss()
+            }
+        } message: {
+            Text("グループを削除してもカード自体は削除されません。")
         }
         .overlay {
             if selectedCard != nil {
