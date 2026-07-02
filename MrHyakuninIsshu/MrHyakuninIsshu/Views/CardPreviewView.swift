@@ -13,6 +13,8 @@ struct CardPreviewView: View {
     @State private var audioRecorder = AudioRecorder()
     @State private var speechService = SpeechService()
     @State private var showsOverwriteConfirmation = false
+    @State private var showsDeleteConfirmation = false
+    @State private var recordingRefreshTrigger = 0
 
     private var isBackFace: Bool {
         let normalized = (rotation.truncatingRemainder(dividingBy: 360) + 360)
@@ -26,6 +28,11 @@ struct CardPreviewView: View {
 
     private var currentReading: String {
         isBackFace ? card.lowerReading : card.upperReading
+    }
+
+    private var hasCurrentRecording: Bool {
+        _ = recordingRefreshTrigger
+        return AudioRecorder.hasRecording(for: currentPhraseID)
     }
 
     var body: some View {
@@ -47,32 +54,53 @@ struct CardPreviewView: View {
 
             Spacer()
 
-            HStack(spacing: 48) {
-                Button {
-                    handleRecordTap()
-                } label: {
-                    Image(systemName: audioRecorder.isRecording ? "stop.circle.fill" : "mic.circle.fill")
-                        .font(.system(size: 48))
-                        .foregroundStyle(audioRecorder.isRecording ? .red : .accentColor)
+            VStack(spacing: 16) {
+                HStack(spacing: 48) {
+                    Button {
+                        handleRecordTap()
+                    } label: {
+                        Image(systemName: audioRecorder.isRecording ? "stop.circle.fill" : "mic.circle.fill")
+                            .font(.system(size: 48))
+                            .foregroundStyle(.red)
+                    }
+
+                    Button {
+                        handlePlayTap()
+                    } label: {
+                        Image(systemName: speechService.isPlaying ? "stop.circle.fill" : "play.circle.fill")
+                            .font(.system(size: 48))
+                            .foregroundStyle(speechService.isPlaying ? .red : .accentColor)
+                    }
                 }
 
-                Button {
-                    speechService.play(phraseID: currentPhraseID, readingText: currentReading)
+                Button(role: .destructive) {
+                    showsDeleteConfirmation = true
                 } label: {
-                    Image(systemName: "play.circle.fill")
-                        .font(.system(size: 48))
+                    Label("録音を削除", systemImage: "trash")
                 }
-                .disabled(speechService.isPlaying)
+                .disabled(!hasCurrentRecording)
             }
             .padding(.bottom, 40)
         }
         .padding()
+        .onChange(of: audioRecorder.isRecording) { _, isRecording in
+            if !isRecording {
+                recordingRefreshTrigger += 1
+            }
+        }
         .alert("上書きして再録音しますか？", isPresented: $showsOverwriteConfirmation) {
             Button("キャンセル", role: .cancel) {}
             Button("再録音", role: .destructive) {
                 Task {
                     await audioRecorder.startRecording(phraseID: currentPhraseID)
                 }
+            }
+        }
+        .alert("録音を削除しますか？", isPresented: $showsDeleteConfirmation) {
+            Button("キャンセル", role: .cancel) {}
+            Button("削除", role: .destructive) {
+                AudioRecorder.deleteRecording(for: currentPhraseID)
+                recordingRefreshTrigger += 1
             }
         }
     }
@@ -88,6 +116,14 @@ struct CardPreviewView: View {
             Task {
                 await audioRecorder.startRecording(phraseID: currentPhraseID)
             }
+        }
+    }
+
+    private func handlePlayTap() {
+        if speechService.isPlaying {
+            speechService.stop()
+        } else {
+            speechService.play(phraseID: currentPhraseID, readingText: currentReading)
         }
     }
 

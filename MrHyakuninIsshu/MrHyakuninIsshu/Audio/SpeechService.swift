@@ -56,6 +56,15 @@ final class SpeechService: NSObject {
         isPlaying = true
         synthesizer.speak(utterance)
     }
+
+    func stop() {
+        audioPlayer?.stop()
+        audioPlayer = nil
+        if synthesizer.isSpeaking {
+            synthesizer.stopSpeaking(at: .immediate)
+        }
+        isPlaying = false
+    }
 }
 
 extension SpeechService: AVAudioPlayerDelegate {

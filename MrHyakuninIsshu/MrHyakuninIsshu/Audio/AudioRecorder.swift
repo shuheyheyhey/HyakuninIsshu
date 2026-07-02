@@ -28,6 +28,10 @@ final class AudioRecorder: NSObject {
         fileManager.fileExists(atPath: audioURL(for: phraseID).path)
     }
 
+    nonisolated static func deleteRecording(for phraseID: String, fileManager: FileManager = .default) {
+        try? fileManager.removeItem(at: audioURL(for: phraseID))
+    }
+
     func requestPermission() async -> Bool {
         await withCheckedContinuation { continuation in
             AVAudioApplication.requestRecordPermission { granted in
