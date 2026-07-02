@@ -13,6 +13,7 @@ struct GroupDetailView: View {
 
     @State private var searchText: String = ""
     @State private var selectedCard: Card?
+    @State private var showingPlayView = false
 
     private let columns = [GridItem(.adaptive(minimum: 150), spacing: 8)]
 
@@ -62,6 +63,12 @@ struct GroupDetailView: View {
                     }
                 }
             }
+            ToolbarItem(placement: .primaryAction) {
+                Button("プレイ") {
+                    showingPlayView = true
+                }
+                .disabled(cards.isEmpty)
+            }
         }
         .overlay {
             if selectedCard != nil {
@@ -75,6 +82,9 @@ struct GroupDetailView: View {
         .sheet(item: $selectedCard) { card in
             CardPreviewView(card: card, borderColorHex: colorHex)
                 .presentationBackgroundInteraction(.enabled)
+        }
+        .fullScreenCover(isPresented: $showingPlayView) {
+            PlayView(cards: cards, borderColorHex: colorHex)
         }
     }
 }
