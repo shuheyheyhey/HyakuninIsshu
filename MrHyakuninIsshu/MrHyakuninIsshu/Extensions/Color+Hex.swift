@@ -19,4 +19,12 @@ extension Color {
 
         self.init(red: red, green: green, blue: blue)
     }
+
+    func toHex() -> String {
+        let resolved = resolve(in: EnvironmentValues())
+        let red = Int((resolved.red * 255).rounded())
+        let green = Int((resolved.green * 255).rounded())
+        let blue = Int((resolved.blue * 255).rounded())
+        return String(format: "#%02X%02X%02X", red, green, blue)
+    }
 }

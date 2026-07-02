@@ -7,13 +7,21 @@ import SwiftUI
 import SwiftData
 
 struct GroupEditView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
+
     @Query(sort: \Card.number) private var cards: [Card]
+    @Query(sort: \TagGroup.sortOrder) private var existingGroups: [TagGroup]
 
     @State private var name: String = ""
     @State private var color: Color = .blue
     @State private var selectedCardIDs: Set<PersistentIdentifier> = []
 
     private let columns = [GridItem(.adaptive(minimum: 150), spacing: 8)]
+
+    private var isSaveDisabled: Bool {
+        name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || selectedCardIDs.isEmpty
+    }
 
     var body: some View {
         ScrollView {
@@ -38,6 +46,14 @@ struct GroupEditView: View {
             .padding(.vertical)
         }
         .navigationTitle("グループを作成")
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button("保存") {
+                    save()
+                }
+                .disabled(isSaveDisabled)
+            }
+        }
     }
 
     private func toggleSelection(of card: Card) {
@@ -47,6 +63,19 @@ struct GroupEditView: View {
         } else {
             selectedCardIDs.insert(id)
         }
+    }
+
+    private func save() {
+        let selectedCards = cards.filter { selectedCardIDs.contains($0.persistentModelID) }
+        let nextSortOrder = (existingGroups.map(\.sortOrder).max() ?? -1) + 1
+        let newGroup = TagGroup(
+            name: name.trimmingCharacters(in: .whitespacesAndNewlines),
+            colorHex: color.toHex(),
+            sortOrder: nextSortOrder,
+            cards: selectedCards
+        )
+        modelContext.insert(newGroup)
+        dismiss()
     }
 }
 
