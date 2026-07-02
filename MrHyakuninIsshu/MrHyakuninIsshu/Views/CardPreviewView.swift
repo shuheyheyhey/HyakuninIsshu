@@ -10,11 +10,22 @@ struct CardPreviewView: View {
     let borderColorHex: String
 
     @State private var rotation: Double = 0
+    @State private var audioRecorder = AudioRecorder()
+    @State private var speechService = SpeechService()
+    @State private var showsOverwriteConfirmation = false
 
     private var isBackFace: Bool {
         let normalized = (rotation.truncatingRemainder(dividingBy: 360) + 360)
             .truncatingRemainder(dividingBy: 360)
         return normalized > 90 && normalized < 270
+    }
+
+    private var currentPhraseID: String {
+        isBackFace ? card.lowerPhraseID : card.upperPhraseID
+    }
+
+    private var currentReading: String {
+        isBackFace ? card.lowerReading : card.upperReading
     }
 
     var body: some View {
@@ -38,22 +49,46 @@ struct CardPreviewView: View {
 
             HStack(spacing: 48) {
                 Button {
-                    // 録音: UIのみ。機能は後で実装。
+                    handleRecordTap()
                 } label: {
-                    Image(systemName: "mic.circle.fill")
+                    Image(systemName: audioRecorder.isRecording ? "stop.circle.fill" : "mic.circle.fill")
                         .font(.system(size: 48))
+                        .foregroundStyle(audioRecorder.isRecording ? .red : .accentColor)
                 }
 
                 Button {
-                    // 再生: UIのみ。未録音時はTTSで読み上げる想定（後で実装）。
+                    speechService.play(phraseID: currentPhraseID, readingText: currentReading)
                 } label: {
                     Image(systemName: "play.circle.fill")
                         .font(.system(size: 48))
                 }
+                .disabled(speechService.isPlaying)
             }
             .padding(.bottom, 40)
         }
         .padding()
+        .alert("上書きして再録音しますか？", isPresented: $showsOverwriteConfirmation) {
+            Button("キャンセル", role: .cancel) {}
+            Button("再録音", role: .destructive) {
+                Task {
+                    await audioRecorder.startRecording(phraseID: currentPhraseID)
+                }
+            }
+        }
+    }
+
+    private func handleRecordTap() {
+        if audioRecorder.isRecording {
+            audioRecorder.stopRecording()
+            return
+        }
+        if AudioRecorder.hasRecording(for: currentPhraseID) {
+            showsOverwriteConfirmation = true
+        } else {
+            Task {
+                await audioRecorder.startRecording(phraseID: currentPhraseID)
+            }
+        }
     }
 
     private func cardFace(label: String, text: String, reading: String) -> some View {
