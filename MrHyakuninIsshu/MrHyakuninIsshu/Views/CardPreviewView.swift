@@ -92,9 +92,10 @@ struct CardPreviewView: View {
             .padding(.bottom, 40)
         }
         .padding()
-        .interactiveDismissDisabled(isBusy)
         .onDisappear {
-            audioRecorder.stopRecording()
+            if audioRecorder.isRecording {
+                audioRecorder.cancelRecording()
+            }
             speechService.stop()
         }
         .onChange(of: audioRecorder.isRecording) { _, isRecording in
