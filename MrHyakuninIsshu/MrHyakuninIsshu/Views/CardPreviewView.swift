@@ -35,6 +35,10 @@ struct CardPreviewView: View {
         return AudioRecorder.hasRecording(for: currentPhraseID)
     }
 
+    private var isBusy: Bool {
+        audioRecorder.isRecording || speechService.isPlaying
+    }
+
     var body: some View {
         VStack(spacing: 32) {
             Spacer()
@@ -47,6 +51,7 @@ struct CardPreviewView: View {
                 .rotation3DEffect(.degrees(isBackFace ? 180 : 0), axis: (x: 0, y: 1, z: 0))
                 .rotation3DEffect(.degrees(rotation), axis: (x: 0, y: 1, z: 0))
                 .onTapGesture {
+                    guard !isBusy else { return }
                     withAnimation(.easeInOut(duration: 0.5)) {
                         rotation += 180
                     }
@@ -63,6 +68,7 @@ struct CardPreviewView: View {
                             .font(.system(size: 48))
                             .foregroundStyle(.red)
                     }
+                    .disabled(speechService.isPlaying)
 
                     Button {
                         handlePlayTap()
@@ -71,6 +77,7 @@ struct CardPreviewView: View {
                             .font(.system(size: 48))
                             .foregroundStyle(speechService.isPlaying ? .red : .accentColor)
                     }
+                    .disabled(audioRecorder.isRecording)
                 }
 
                 Button(role: .destructive) {
@@ -78,11 +85,12 @@ struct CardPreviewView: View {
                 } label: {
                     Label("録音を削除", systemImage: "trash")
                 }
-                .disabled(!hasCurrentRecording)
+                .disabled(!hasCurrentRecording || isBusy)
             }
             .padding(.bottom, 40)
         }
         .padding()
+        .interactiveDismissDisabled(isBusy)
         .onChange(of: audioRecorder.isRecording) { _, isRecording in
             if !isRecording {
                 recordingRefreshTrigger += 1
