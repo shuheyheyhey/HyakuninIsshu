@@ -12,9 +12,19 @@ struct HomeView: View {
 
     var body: some View {
         List {
-            GroupRow(name: "全カード", cardCount: allCards.count, colorHex: "#8E8E93")
+            NavigationLink {
+                GroupDetailView(group: nil)
+            } label: {
+                GroupRow(name: "全カード", cardCount: allCards.count)
+            }
+            .listRowBackground(Color(hex: "#8E8E93").opacity(0.3))
             ForEach(groups) { group in
-                GroupRow(name: group.name, cardCount: group.cards.count, colorHex: group.colorHex)
+                NavigationLink {
+                    GroupDetailView(group: group)
+                } label: {
+                    GroupRow(name: group.name, cardCount: group.cards.count)
+                }
+                .listRowBackground(Color(hex: group.colorHex).opacity(0.3))
             }
         }
         .navigationTitle("ミスター百人一首")
@@ -33,7 +43,6 @@ struct HomeView: View {
 private struct GroupRow: View {
     let name: String
     let cardCount: Int
-    let colorHex: String
 
     var body: some View {
         HStack {
@@ -43,7 +52,6 @@ private struct GroupRow: View {
             Text("\(cardCount)枚")
                 .foregroundStyle(.secondary)
         }
-        .listRowBackground(Color(hex: colorHex).opacity(0.3))
     }
 }
 

@@ -1,0 +1,66 @@
+//
+//  GroupDetailView.swift
+//  MrHyakuninIsshu
+//
+
+import SwiftUI
+import SwiftData
+
+struct GroupDetailView: View {
+    let group: TagGroup?
+
+    @Query(sort: \Card.number) private var allCards: [Card]
+
+    private let columns = [GridItem(.adaptive(minimum: 150), spacing: 8)]
+
+    private var cards: [Card] {
+        guard let group else { return allCards }
+        return group.cards.sorted { $0.number < $1.number }
+    }
+
+    private var colorHex: String {
+        group?.colorHex ?? "#8E8E93"
+    }
+
+    var body: some View {
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 8) {
+                ForEach(cards) { card in
+                    NavigationLink {
+                        CardPreviewView(card: card)
+                    } label: {
+                        CardView(card: card, backgroundColor: Color(hex: colorHex).opacity(0.3))
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding()
+        }
+        .navigationTitle(group?.name ?? "全カード")
+        .toolbar {
+            if let group {
+                ToolbarItem(placement: .primaryAction) {
+                    NavigationLink("編集") {
+                        GroupEditView(existingGroup: group)
+                    }
+                }
+            }
+        }
+    }
+}
+
+#Preview {
+    NavigationStack {
+        GroupDetailView(group: nil)
+    }
+    .modelContainer(previewContainer)
+}
+
+@MainActor
+private let previewContainer: ModelContainer = {
+    let schema = Schema([Card.self, TagGroup.self])
+    let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: schema, configurations: [configuration])
+    PoemSeeder.seedIfNeeded(context: container.mainContext)
+    return container
+}()

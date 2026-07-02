@@ -13,12 +13,23 @@ struct GroupEditView: View {
     @Query(sort: \Card.number) private var cards: [Card]
     @Query(sort: \TagGroup.sortOrder) private var existingGroups: [TagGroup]
 
-    @State private var name: String = ""
-    @State private var color: Color = .blue
-    @State private var selectedCardIDs: Set<PersistentIdentifier> = []
+    private let existingGroup: TagGroup?
+
+    @State private var name: String
+    @State private var color: Color
+    @State private var selectedCardIDs: Set<PersistentIdentifier>
     @State private var searchText: String = ""
 
     private let columns = [GridItem(.adaptive(minimum: 150), spacing: 8)]
+
+    init(existingGroup: TagGroup? = nil) {
+        self.existingGroup = existingGroup
+        _name = State(initialValue: existingGroup?.name ?? "")
+        _color = State(initialValue: existingGroup.map { Color(hex: $0.colorHex) } ?? .blue)
+        _selectedCardIDs = State(
+            initialValue: Set(existingGroup?.cards.map(\.persistentModelID) ?? [])
+        )
+    }
 
     private var isSaveDisabled: Bool {
         name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || selectedCardIDs.isEmpty
@@ -55,7 +66,7 @@ struct GroupEditView: View {
             }
             .padding(.vertical)
         }
-        .navigationTitle("グループを作成")
+        .navigationTitle(existingGroup == nil ? "グループを作成" : "グループを編集")
         .searchable(text: $searchText, prompt: "カードを検索")
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
@@ -78,14 +89,22 @@ struct GroupEditView: View {
 
     private func save() {
         let selectedCards = cards.filter { selectedCardIDs.contains($0.persistentModelID) }
-        let nextSortOrder = (existingGroups.map(\.sortOrder).max() ?? -1) + 1
-        let newGroup = TagGroup(
-            name: name.trimmingCharacters(in: .whitespacesAndNewlines),
-            colorHex: color.toHex(),
-            sortOrder: nextSortOrder,
-            cards: selectedCards
-        )
-        modelContext.insert(newGroup)
+        let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        if let existingGroup {
+            existingGroup.name = trimmedName
+            existingGroup.colorHex = color.toHex()
+            existingGroup.cards = selectedCards
+        } else {
+            let nextSortOrder = (existingGroups.map(\.sortOrder).max() ?? -1) + 1
+            let newGroup = TagGroup(
+                name: trimmedName,
+                colorHex: color.toHex(),
+                sortOrder: nextSortOrder,
+                cards: selectedCards
+            )
+            modelContext.insert(newGroup)
+        }
         dismiss()
     }
 }
