@@ -31,17 +31,25 @@ struct GroupDetailView: View {
 
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns, spacing: 8) {
-                ForEach(cards) { card in
-                    NavigationLink {
-                        CardPreviewView(card: card)
-                    } label: {
-                        CardView(card: card, backgroundColor: Color(hex: colorHex).opacity(0.3))
+            VStack(alignment: .leading, spacing: 8) {
+                Text("\(cards.count)枚")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .padding(.horizontal)
+
+                LazyVGrid(columns: columns, spacing: 8) {
+                    ForEach(cards) { card in
+                        NavigationLink {
+                            CardPreviewView(card: card)
+                        } label: {
+                            CardView(card: card, backgroundColor: Color(hex: colorHex).opacity(0.3))
+                        }
+                        .buttonStyle(.plain)
                     }
-                    .buttonStyle(.plain)
                 }
+                .padding(.horizontal)
             }
-            .padding()
+            .padding(.vertical)
         }
         .navigationTitle(group?.name ?? "全カード")
         .searchable(text: $searchText, prompt: "カードを検索")
